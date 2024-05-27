@@ -1,7 +1,11 @@
 spring:
   application:
     name: demo
-
+  data:
+    redis:
+      host: redis.ddehdev-dev.svc.cluster.hz
+      port: 32078
+      password: foobared
 server:
   port: 8080
 
