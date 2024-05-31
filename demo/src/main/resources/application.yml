@@ -6,11 +6,28 @@ spring:
       host: redis.ddehdev-dev.svc.cluster.hz
       port: 32078
       password: foobared
+  datasource:
+    url: jdbc:mysql://mysql.ddehdev-dev.svc.cluster.hz:31126/dkl?useSSL=false&serverTimezone=UTC
+    username: root
+    password: chamber
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
 server:
   port: 8080
 
-# redis
-
-
-
-# mysql
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+  file:
+    path: logs/app.log
+# storage file dir
+file:
+  upload-dir: ${storageDir:D:\test}
